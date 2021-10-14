@@ -1,0 +1,55 @@
+{{> header}}
+{{> nav}}
+
+<div class="container">
+
+<div class="container mt-3 mb-3">
+    {{#if message}}
+        <div class="alert alert-{{message.type}} mt-5 mb-3" role="alert">
+            {{message.message}}
+        </div>
+    {{/if}}
+</div>
+
+<a href="/" class="btn btn-secondary mb-3"> < Home</a>
+
+<div class="shadow-lg p-3 mb-5 bg-body rounded">
+<div class="card mt-3">
+    <div class="card-header">
+        Add task
+    </div>
+    <div class="card-body">
+        <form action="/addnew-tasks" method="post">
+        <div class="mb-3">
+            <label class="form-label">Task</label>
+            <input type="text" class="form-control" name="task">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Progress</label>
+            <select class="form-select" name="is_done">
+                <option value="Progress">Progress</option>
+                <option value="Done">Done</option>
+                <option value="Cancel">Cancel</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Category Collections</label>
+            <select class="form-select" name="collections">
+                {{#each tasks}}
+                <option value="{{this.id_collect}}">{{this.name_collection}}</option>
+                {{/each}}
+            </select>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+</div>
+
+
+
+</div>
+
+{{> footer}}
