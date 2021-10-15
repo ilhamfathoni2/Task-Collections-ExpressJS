@@ -19,7 +19,6 @@ router.get('/task/:id', (req, res) => {
                         title: 'Task',
                         isLogin: req.session.isLogin,
                         task: results,
-                        collection: results[0].name_collection,
                     });
                 
             });
